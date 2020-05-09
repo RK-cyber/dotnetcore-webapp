@@ -34,7 +34,7 @@ jobs:
           dotnet build --configuration Release
           dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
           
-             # Setup .NET Core SDK
+       # Setup .NET Core SDK
       - name: Setup .NET Core
         uses: actions/setup-dotnet@master
         with:

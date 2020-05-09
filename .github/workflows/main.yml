@@ -40,7 +40,14 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }} 
           
-      - name: Snyk
+      
+steps:
+    - uses: actions/checkout@master
+    - name: trufflehog-actions-scan
+uses: edplato/trufflehog-actions-scan@master
+with:
+    scanArguments: "--regex --entropy=False --max_depth=5 --rules /regexes.json" # Add custom options here*
+    - name: Snyk
         uses: snyk/actions@0.1.1
           
       # Deploy to Azure Web apps
